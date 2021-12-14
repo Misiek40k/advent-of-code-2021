@@ -6,23 +6,23 @@ const headingCalculation = (fileName) => {
         const headingsArr = dataArr.map(value => {
             return {
                 direction: value.split(' ')[0],
-                value: parseFloat(value.split(' ')[1]) 
+                value: parseInt(value.split(' ')[1], 10) 
             }
         });
 
         let horizontalPosition = 0;
         let depthPosition = 0;
 
-        headingsArr.forEach(heading => {
-            switch (heading.direction) {
+        headingsArr.forEach(({direction, value}) => {
+            switch (direction) {
                 case 'forward': 
-                    horizontalPosition += heading.value;
+                    horizontalPosition += value;
                     break;
                 case 'up':
-                    depthPosition -= heading.value;
+                    depthPosition -= value;
                     break;
                 case 'down':
-                    depthPosition += heading.value;
+                    depthPosition += value;
                     break;
             }
         });
@@ -33,4 +33,4 @@ const headingCalculation = (fileName) => {
     }
 }
 
-console.log(headingCalculation('inputTest.txt'));
+console.log(headingCalculation('input.txt'));

@@ -6,7 +6,7 @@ const headingCalculation = (fileName) => {
         const headingsArr = dataArr.map(value => {
             return {
                 direction: value.split(' ')[0],
-                value: parseFloat(value.split(' ')[1]) 
+                value: parseInt(value.split(' ')[1], 10) 
             }
         });
 
@@ -14,19 +14,19 @@ const headingCalculation = (fileName) => {
         let depthPosition = 0;
         let aim = 0;
 
-        headingsArr.forEach(heading => {
-            switch (heading.direction) {
+        headingsArr.forEach(({direction, value}) => {
+            switch (direction) {
                 case 'forward': 
-                    horizontalPosition += heading.value;
+                    horizontalPosition += value;
                     if (aim !== 0) {
-                        depthPosition += aim * heading.value;
+                        depthPosition += aim * value;
                     }
                     break;
                 case 'up':
-                    aim -= heading.value;
+                    aim -= value;
                     break;
                 case 'down':
-                    aim += heading.value;
+                    aim += value;
                     break;
             }
         });

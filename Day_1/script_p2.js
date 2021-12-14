@@ -3,7 +3,7 @@ const fs = require('fs');
 const sonarSweepCalculation = (fileName) => {
     try {
         const dataArr = fs.readFileSync(fileName, 'utf8').toString().split('\n');
-        const numbersArr = dataArr.map(value => parseFloat(value));
+        const numbersArr = dataArr.map(value => parseInt(value),10);
 
         const sumArrayValues = (index) => {
             return numbersArr.slice(index, index + 3).reduce((acc, val) => acc + val);
