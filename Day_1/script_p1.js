@@ -1,8 +1,8 @@
 const fs = require('fs');
 
-const sonarSweepCalculation = () => {
+const sonarSweepCalculation = (fileName) => {
     try {
-        const dataArr = fs.readFileSync('input.txt', 'utf8').toString().split('\n');
+        const dataArr = fs.readFileSync(fileName, 'utf8').toString().split('\n');
         const numbersArr = dataArr.map(value => parseFloat(value));
 
         let count = 0;
@@ -20,4 +20,4 @@ const sonarSweepCalculation = () => {
     }
 }
 
-console.log(sonarSweepCalculation());
+console.log(sonarSweepCalculation('input.txt'));
