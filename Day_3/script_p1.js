@@ -10,14 +10,14 @@ const bitCalculation = (fileName) => {
         let epsilonRate = '';
 
         bitsArr.forEach(bitNumber => {
-            bitNumber.forEach((number, index) =>{
+            bitNumber.forEach((number, index) => {
                 if (number === '1') {
                     bitsCountArr[index] = bitsCountArr[index] ? bitsCountArr[index] + 1 : 1;
                 }
             });
         })
 
-        bitsCountArr.forEach((value)=>{
+        bitsCountArr.forEach((value) => {
             if (value > bitsArr.length / 2) {
                 gammaRate += '1'
                 epsilonRate += '0'
